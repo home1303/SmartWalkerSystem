@@ -22,10 +22,15 @@ A sample image of the Smart Walker system Dashboard UI, which displays real-time
 - Active time during the month 📅
 - Weekly distance and steps chart 📊
 
-![Walker Image](public/images/Dashboard-UI.png)
+![Dashboard UI](public/images/Dashboard-UI.png)
 
 > Examples from the dashboard clearly show usage over time and health data.
 
+Example image for moblie:
+
+![Dashboard UI](public/images/moblie-UI.png)
+
+> Examples from the dashboard on moblie.
 
 You can visit my Web here: [SmartWalkerSystem.online](https://smartwalkersystem.online) or [on firebase Hosting](https://walkertest-a907f.web.app/)
 
@@ -35,7 +40,7 @@ You can visit my Web here: [SmartWalkerSystem.online](https://smartwalkersystem.
 
 Here is the image of the Smart Walker project:
 
-![Dashboard UI](public/images/SmartWalker.png)
+![Walker Image](public/images/SmartWalker.png)
 
 > This is a piece of work from the smart walker project.
 
