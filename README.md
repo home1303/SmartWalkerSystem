@@ -2,6 +2,8 @@
 
 A smart assistive walking device designed to enhance mobility, safety, and independence for elderly or physically challenged users. This system integrates sensors, microcontrollers, and software to monitor environment, detect obstacles, and support user navigation.
 
+![Welcome](public/images/sws.gif)
+
 ## 📌 Project Overview
 
 The **Smart Walker System** combines hardware and software to create a smarter mobility aid. Key features include:
@@ -48,6 +50,8 @@ Here is the image of the Smart Walker project:
 ---
 
 ## 🧰 Technologies Used
+
+![Welcome](public/images/walker.gif)
 
 ### Hardware
 - Arduino / ESP 32
