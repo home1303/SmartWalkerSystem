@@ -27,6 +27,7 @@ A sample image of the Smart Walker system Dashboard UI, which displays real-time
 > Examples from the dashboard clearly show usage over time and health data.
 
 Example image for moblie:
+- use CSS and Tailwindcss for Developed
 
 ![Dashboard UI](public/images/moblie-UI.png)
 
