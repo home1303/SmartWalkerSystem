@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Validation from "./Validation/Register_Validation";
-import { Mail, Lock, User, Phone, Ruler, Scale } from "lucide-react";
+import { Mail, Lock, User, Phone, Ruler, Scale,Microchip  } from "lucide-react";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -15,6 +15,8 @@ export default function Register() {
     phone: "",
     height: "",
     weight: "",
+    deviceID1:"",
+    deviceID2:"",
   });
 
   const [errors, setErrors] = useState({});
@@ -29,7 +31,8 @@ export default function Register() {
     const validationErrors = Validation(values);
     setErrors(validationErrors);
   
-    if (errors.name === "" && errors.email === "" && errors.password === "" && errors.phone === "" && errors.height === "" && errors.weight === "") {
+    if (errors.name === "" && errors.email === "" && errors.password === "" && errors.phone === "" && 
+      errors.height === "" && errors.weight === "" && errors.deviceID1 === "" && errors.deviceID2 === "") {
       try {
         const auth = getAuth();
         const userCredential = await createUserWithEmailAndPassword(
@@ -43,10 +46,12 @@ export default function Register() {
           uid: user.uid,
           name: values.name,
           email: values.email,
-          password: values.password,
+          // password: values.password,
           phone: values.phone,
           height: values.height,
           weight: values.weight,
+          deviceID1: values.deviceID1,
+          deviceID2: values.deviceID2,
           role: "user",  // Add the role field here
         });
   
@@ -93,14 +98,16 @@ export default function Register() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { name: "name", icon: <User />, placeholder: "Name" },
-                { name: "email", icon: <Mail />, placeholder: "Email" },
-                { name: "password", icon: <Lock />, placeholder: "Password", type: "password" },
-                { name: "phone", icon: <Phone />, placeholder: "Phone" },
+                { name: "email", icon: <Mail />, placeholder: "example1234@gmail.com" },
+                { name: "password", icon: <Lock />, placeholder: "Hadds23", type: "password" },
+                { name: "phone", icon: <Phone />, placeholder: "0669854478" },
                 { name: "height", icon: <Ruler />, placeholder: "Height (cm)" },
                 { name: "weight", icon: <Scale />, placeholder: "Weight (kg)" },
+                { name: "deviceID1", icon: <Microchip  />, placeholder: "deviceID1" },
+                { name: "deviceID2", icon: <Microchip  />, placeholder: "deviceID2" },
               ].map(({ name, icon, placeholder, type = "text" }) => (
                 <div key={name} className="relative">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <div className="absolute left-3 top-1/3 transform -translate-y-1 text-gray-400">
                     {icon}
                   </div>
                   <input

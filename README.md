@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 🚶‍♂️🤖 Smart Walker System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A smart assistive walking device designed to enhance mobility, safety, and independence for elderly or physically challenged users. This system integrates sensors, microcontrollers, and software to monitor environment, detect obstacles, and support user navigation.
 
-## Available Scripts
+## 📌 Project Overview
 
-In the project directory, you can run:
+The **Smart Walker System** combines hardware and software to create a smarter mobility aid. Key features include:
+- 🔍 Obstacle detection using ultrasonic and d80NK
+- 🔍 Fall detection using GY-521(MPU6050)+ Gyro
+- ⚠️ Real-time alerts on Web Application and Line Notification
+- 📱 Mobile/Web dashboard for remote monitoring
+- 🔋 Battery management and power efficiency
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🖥️ Dashboard UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A sample image of the Smart Walker system Dashboard UI, which displays real-time information such as:
+- Heart Rate 💓
+- Distance walked 🚶
+- Number of steps 👣
+- Active time during the month 📅
+- Weekly distance and steps chart 📊
 
-### `npm test`
+![Walker Image](images/Dashboard-UI.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Examples from the dashboard clearly show usage over time and health data.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🤖 Smart Walker Project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Here is the image of the Smart Walker project:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Dashboard UI](images/SmartWalker.png)
 
-### `npm run eject`
+> This is a piece of work from the smart walker project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧰 Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Hardware
+- Arduino / ESP 32
+- Ultrasonic / d80NK / GY-521(MPU6050)+ Gyro
+- LCD2004
+- Motor Driver Module (L298N)
+- DC Motor 
+- Battery & Power Supply
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Software
+- Python  (Microcontroller)
+- Node.js  (Backend)
+- React / HTML-CSS (Frontend)
+- Firebase  (Database)
+- MQTT / Bluetooth / WiFi for communication
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🙌 Contributors
+นาย ณัฐเมศร์ วงศ์ธนิตเลิศ – IoT Developer / Firmware & Sensor Integration 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

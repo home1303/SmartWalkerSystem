@@ -26,9 +26,6 @@ export default function Login() {
         const auth = getAuth();
         const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
         const user = userCredential.user;
-
-        console.log("User Credential: ", user.uid);
-
         const q = query(collection(db, "user"), where("uid", "==", user.uid));
         const querySnapshot = await getDocs(q);
 
@@ -37,20 +34,15 @@ export default function Login() {
           const userData = userDoc.data();
           const userRef = doc(db, "user", userDoc.id);
 
-       
           await updateDoc(userRef, {
             loginCount: (userData.loginCount || 0) + 1,
             lastLogin: new Date().toISOString(),
           });
 
-        
           localStorage.setItem("userEmail", user.email);
           localStorage.setItem("userID", user.uid);
           localStorage.setItem("userRole", userData.role);
-
-  
           setStartTime(Date.now());
-
      
           Swal.fire({
             title: "Login Successful!",
@@ -99,7 +91,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col-reverse sm:flex-row min-h-screen bg-gray-100">
+    <div className="flex flex-col-reverse sm:flex-row min-h-screen">
       {/* Left Section (Form) */}
       <div className="w-full sm:w-1/2 flex items-center justify-center bg-white p-6 sm:p-10">
         <div className="max-w-sm w-full space-y-6">
@@ -114,7 +106,7 @@ export default function Login() {
                 name="email"
                 value={values.email}
                 onChange={handleInput}
-                placeholder="Enter your email"
+                placeholder="Enter your email ex.(example1234@gmail.com)"
                 className="mt-1 p-3 w-full text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition"
               />
               {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -142,7 +134,10 @@ export default function Login() {
       </div>
 
       {/* Right Section (Image) */}
-      <div className="w-full sm:w-1/2 h-48 sm:h-auto bg-cover bg-center" style={{ backgroundImage: "url('/images/login_pics.jpg')" }}></div>
+      <div
+        className="w-full sm:w-1/2 h-48 sm:h-auto bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/login_pics.jpg')" }}
+      ></div>
     </div>
   );
 }

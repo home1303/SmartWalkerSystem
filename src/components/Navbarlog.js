@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaHome, FaChartPie, FaBars, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const Navbarlog = () => {
   const navigate = useNavigate();
   const location = useLocation();

@@ -39,9 +39,9 @@ const Admin = () => {
         if (response.data.message === "Deleted user") {
           console.log('User deleted from Firebase Auth');
       
-          // Delete user from Firestore
+   
           await deleteDoc(doc(db, "user", user.id));
-          setUsers(users.filter((u) => u.id !== user.id)); // Remove from state
+          setUsers(users.filter((u) => u.id !== user.id)); 
           Swal.fire("Deleted!", "User has been deleted.", "success");
         } else {
           throw new Error('Failed to delete user from Firebase Auth');

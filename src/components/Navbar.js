@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../styles/NavbarDark.css";
 import useCheckUser from "../hooks/Checklogin";
 
+
 const NavbarDark = () => {
     const navigate = useNavigate();
     const userData = useCheckUser();

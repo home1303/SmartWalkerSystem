@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
-import { getFunctions, httpsCallable } from "firebase/functions";
+import { getFunctions, } from "firebase/functions";
 import { getStorage } from "firebase/storage";
 
 
@@ -24,7 +24,7 @@ const auth = getAuth(app);
 const functions = getFunctions(app);
 const storage = getStorage(app); 
 
-// ฟังก์ชันดึงข้อมูลผู้ใช้จาก Firestore ตาม UID
+
 export const getUserByUid = async (uid) => {
   try {
     const q = query(collection(db, "user"), where("uid", "==", uid));
@@ -33,19 +33,16 @@ export const getUserByUid = async (uid) => {
     if (!querySnapshot.empty) {
       const userData = querySnapshot.docs[0].data();
 
-      console.log(userData.role);
 
-      console.log("✅ User Data from Firestore:", userData);
       return userData;
     } else {
-      console.log("⚠️ No user found with this UID!");
+      console.log("No user found");
       return null;
     }
   } catch (error) {
-    console.error("🚨 Error getting user from Firestore:", error);
+    console.error("Error getting user from Firestore:", error);
     return null;
   }
 };
 
-// Export Firebase objects
 export { db, auth, functions, storage};

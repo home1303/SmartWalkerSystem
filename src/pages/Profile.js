@@ -24,6 +24,7 @@ const Profile = () => {
   const user = useCheckUser();
   const auth = getAuth();
 
+
   const [users, setUsers] = useState(null);
   const isMobile = Moblie();
 
@@ -79,17 +80,13 @@ const Profile = () => {
 
   const handleSaveProfile = async () => {
     if (!users) return;
-
-    // Use state to store the form data
     const newName = document.getElementById("swal-name").value;
     const newEmail = document.getElementById("swal-email").value;
     const newPhone = document.getElementById("swal-phone").value;
     const newHeight = document.getElementById("swal-height").value;
     const newWeight = document.getElementById("swal-weight").value;
-
     try {
       let profileImageUrl = imageUrl;
-
       if (selectedImage) {
         profileImageUrl = await uploadImage(selectedImage, (progress) => {
           const progressBar = document.getElementById("upload-progress-bar");
@@ -98,14 +95,12 @@ const Profile = () => {
           if (progressText) progressText.textContent = `${progress.toFixed(0)}%`;
         });
       }
-
       const usersRef = collection(db, "user");
       const q = query(usersRef, where("uid", "==", auth.currentUser.uid));
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
-        const userDocRef = doc(db, "user", querySnapshot.docs[0].id); // อ้างอิงเอกสารที่พบ
-
+        const userDocRef = doc(db, "user", querySnapshot.docs[0].id); 
         await updateDoc(userDocRef, {
           name: newName,
           email: newEmail,
@@ -114,10 +109,8 @@ const Profile = () => {
           weight: newWeight,
           profileImage: profileImageUrl,
         });
-
         await updateProfile(auth.currentUser, { displayName: newName });
         await updateEmail(auth.currentUser, newEmail);
-
         MySwal.fire({
           icon: "success",
           title: "Updated Successfully!",
@@ -134,7 +127,7 @@ const Profile = () => {
   };
   const handleEditImage = async () => {
     const { value: file } = await MySwal.fire({
-      title: "Select a profile image",
+      title: "Select your profile image",
       input: "file",
       inputAttributes: {
         accept: "image/*",
@@ -255,14 +248,13 @@ const Profile = () => {
         cancelButton: 'bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded'
       },
       preConfirm: () => {
-        // Get the values from the input fields
+
         const name = document.getElementById('swal-name').value;
         const email = document.getElementById('swal-email').value;
         const phone = document.getElementById('swal-phone').value;
         const height = document.getElementById('swal-height').value;
         const weight = document.getElementById('swal-weight').value;
 
-        // Check if any of the inputs have changed
         const isChanged = (
           name !== user.name ||
           email !== user.email ||
@@ -270,19 +262,17 @@ const Profile = () => {
           height !== user.height ||
           weight !== user.weight
         );
-
         if (!isChanged) {
-          // If nothing has changed, show an alert and prevent saving
+
           MySwal.fire({
             icon: "info",
             title: "No Changes Detected",
             text: "You haven't made any changes to your profile.",
             confirmButtonText: "Okay"
           });
-          return false; // Prevent the save action
+          return false; 
         }
 
-        // Handle the save action directly from here
         handleSaveProfile(name, email, phone, height, weight);
       }
     });
@@ -290,8 +280,9 @@ const Profile = () => {
 
   if (!user) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex flex-col justify-center items-center min-h-screen">
         <FaSpinner className="text-gray-500 text-6xl animate-spin" />
+        <p>กำลังโหลดข้อมูล</p>
       </div>
     );
   }
@@ -345,25 +336,29 @@ const Profile = () => {
                 </div>
 
                 {/* รูปโปรไฟล์ */}
-                <div className="flex flex-col items-center gap-4 mx-auto">
+                <div className="flex flex-col items-center gap-4 mx-auto relative">
+                  <div className="absolute -top-4 -right-4 bg-gray-300 rounded-full shadow p-2 cursor-pointer hover:bg-gray-400 transition">
+                    <button
+                      onClick={handleEditImage}
+                      className="text-black-600 text-sm flex items-center justify-center"
+                    >
+                      <FaPencilAlt />
+                    </button>
+                  </div>
+
                   {!imageUrl ? (
-                    <div className="flex items-center justify-center w-[200px] h-[200px] bg-gray-100 rounded-lg">
-                      <FaSpinner className="text-gray-500 text-3xl animate-spin" />
+                    <div className="flex items-center justify-center w-[250px] h-[260px] bg-gray-100 rounded-lg">
+                      <p className="text-lg font-semibold text-gray-700">No Image</p>
                     </div>
                   ) : (
                     <img
-                      src={imageUrl || "/images/user.png"}
+                      src={imageUrl}
                       alt="Profile"
                       className="w-[250px] h-[260px] object-cover rounded-lg shadow"
                     />
                   )}
+
                   <p className="text-gray-700 font-semibold text-lg">{user.name || "N/A"}</p>
-                  <button
-                    onClick={handleEditImage}
-                    className="text-blue-600 flex items-center text-sm hover:underline"
-                  >
-                    Edit Image <FaPencilAlt className="ml-2" />
-                  </button>
                 </div>
               </div>
             </div>

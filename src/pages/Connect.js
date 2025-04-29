@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import { FaCheckCircle, FaTimes, FaSpinner } from "react-icons/fa";
 import useCheckUser from "../hooks/Checklogin";
 import Moblie from "../hooks/MoblieMenu";
+import DeviceNotFound from "../components/DeviceCheck";
 
 const DEVICES = [
     { id: "0e01f7ba-ce71-4f50-ba2c-88004562dea5", token: "915y5BmnrCoP5kNn7M16TpxGxSneWyB2", name: "Device 1" },
@@ -14,10 +15,12 @@ const DEVICES = [
 const API_URL = "https://api.netpie.io/v2/device/status";
 
 const Connect = () => {
-    useCheckUser();
+    const user = useCheckUser();
     const isMobile = Moblie();
     const [deviceStatuses, setDeviceStatuses] = useState({});
     const [loading, setLoading] = useState(true);
+    
+
 
     useEffect(() => {
         const fetchDeviceStatus = async () => {
@@ -53,7 +56,20 @@ const Connect = () => {
             ? <FaCheckCircle className="text-green-500 text-4xl" />
             : <FaTimes className="text-red-500 text-4xl" />;
     };
-    
+
+    if (!user) {
+        return (
+            <div className="flex flex-col justify-center items-center min-h-screen">
+                <FaSpinner className="text-gray-500 text-6xl animate-spin" />
+                <p>กำลังโหลดข้อมูล</p>
+            </div>
+
+        );
+    }
+    if (!user?.deviceID1 && !user?.deviceID2) {
+        return <DeviceNotFound />;
+    }
+
     return (
         <div className="flex min-h-screen bg-gray-50">
             {isMobile ? <Navbar className="fixed top-0 w-full" /> : <Sidebar />}

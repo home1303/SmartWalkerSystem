@@ -9,9 +9,7 @@ const useAuth = () => {
     height: "",
     weight: ""
   });
-
   const navigate = useNavigate();
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -26,8 +24,6 @@ const useAuth = () => {
       });
     }
   }, [navigate]);
-
   return userData;
 };
-
 export default useAuth;
