@@ -6,7 +6,7 @@ A smart assistive walking device designed to enhance mobility, safety, and indep
 
 The **Smart Walker System** combines hardware and software to create a smarter mobility aid. Key features include:
 - 🔍 Obstacle detection using ultrasonic and d80NK
-- 🔍 Fall detection using GY-521(MPU6050)+ Gyro
+- 🤕 Fall detection using GY-521(MPU6050)+ Gyro
 - ⚠️ Real-time alerts on Web Application and Line Notification
 - 📱 Mobile/Web dashboard for remote monitoring
 - 🔋 Battery management and power efficiency
@@ -22,7 +22,7 @@ A sample image of the Smart Walker system Dashboard UI, which displays real-time
 - Active time during the month 📅
 - Weekly distance and steps chart 📊
 
-![Walker Image](images/Dashboard-UI.png)
+![Walker Image](public/images/Dashboard-UI.png)
 
 > Examples from the dashboard clearly show usage over time and health data.
 
@@ -32,7 +32,7 @@ A sample image of the Smart Walker system Dashboard UI, which displays real-time
 
 Here is the image of the Smart Walker project:
 
-![Dashboard UI](images/SmartWalker.png)
+![Dashboard UI](public/images/SmartWalker.png)
 
 > This is a piece of work from the smart walker project.
 
