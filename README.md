@@ -27,7 +27,7 @@ A sample image of the Smart Walker system Dashboard UI, which displays real-time
 > Examples from the dashboard clearly show usage over time and health data.
 
 
-You can visit my Web here: [คลิกที่นี่เพื่อไปยังเว็บไซต์หลัก](https://smartwalkersystem.online)
+You can visit my Web here: [SmartWalkerSystem.online](https://smartwalkersystem.online) or [on firebase Hosting](https://walkertest-a907f.web.app/)
 
 ---
 
