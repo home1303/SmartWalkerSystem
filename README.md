@@ -37,8 +37,8 @@ Example image for moblie:
 
 You can visit my Web here: [SmartWalkerSystem.online](https://smartwalkersystem.online) or [on firebase Hosting](https://walkertest-a907f.web.app/)
 
-You can use ID device1 and device2 here:
-Device1: f6a797e9-9154-4c63-bca3-fb1ca8110456
+You can use ID device1 and device2 here:<br>
+Device1: f6a797e9-9154-4c63-bca3-fb1ca8110456<br>
 Device2: 355d4c88-eed8-4bea-a64a-09b81cd7220b
 
 ---
